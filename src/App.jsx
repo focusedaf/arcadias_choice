@@ -6,8 +6,8 @@ import Leaderboard from "./Pages/Leaderboard";
 import Login from "./Pages/Login";
 import Quiz from "./Pages/Quiz";
 import End from "./Pages/End";
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
