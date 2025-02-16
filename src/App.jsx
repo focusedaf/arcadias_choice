@@ -3,7 +3,7 @@ import './App.css'
 import { Route, Routes } from "react-router-dom";
 import Landing from "./Components/Landing";
 import Home from "./Pages/Home";
-import Leaderboard from "./Pages/Leaderboard";
+import Leaderboard from "./Components/Leaderboard";
 import Login from "./Pages/Login";
 import Quiz from "./Pages/Quiz";
 import End from "./Pages/End";

@@ -7,7 +7,7 @@ const MetropolisMatrix = () => {
   return (
     <div 
       className="min-h-screen bg-cover bg-center py-12 px-4"
-      style={{ backgroundImage: "url('/assets/urban_theme.svg')" }}
+      style={{ backgroundImage: "url('/urban theme.svg')" , backgroundSize: "cover",  backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", width: "100vw", height: "100vh", overflow: "hidden", position: "absolute", top: 0, left: 0,}}
     >
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="text-center space-y-4">
@@ -24,7 +24,7 @@ const MetropolisMatrix = () => {
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate('/quiz/metropolis')}
+            onClick={() => navigate('/end')}
             className="bg-gray-500 hover:bg-gray-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
@@ -35,7 +35,7 @@ const MetropolisMatrix = () => {
 
         <div className="flex justify-center mt-4">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/home')}
             className="text-white/80 hover:text-white font-press-start 
                      py-2 px-4 rounded-lg transition-colors duration-300"
           >

@@ -69,4 +69,4 @@ const MetropolisMatrixQuiz = () => {
 };
 
 export default MetropolisMatrixQuiz;
-          <div className="text-white">Score: {score}</div>
+          

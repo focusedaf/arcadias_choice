@@ -51,7 +51,7 @@ const Home = () => {
   return (
     <div 
       className="min-h-screen bg-cover bg-center py-12 px-4"
-      style={{ backgroundImage: "url('/assets/mountain_landing.svg')" }}
+      style={{ backgroundImage: "url('/mountain_landing.svg')" , backgroundSize: "cover",  backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", minHeight: "100vh", width: "100%", }}
     >
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Welcome Section */}
