@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Leaderboard from "./Pages/Leaderboard";
 import Login from "./Pages/Login";
 import Quiz from "./Pages/Quiz";
+import End from "./Pages/End";
 function App() {
   const [count, setCount] = useState(0)
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/quiz" element={<Quiz />}></Route>
+        <Route path="/end" element={<End />}></Route>
       </Routes>
     </>
   );
