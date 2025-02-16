@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Quiz = () => {
-  const { themeId } = useParams();
+const FrostfallRealmQuiz = () => {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
-  const [questions, setQuestions] = useState([]);
 
-  useEffect(() => {
-    // Load questions based on themeId
-    // This would normally fetch from your questions database
-    // For now, we'll use the ones from README
-  }, [themeId]);
+  const questions = [
+    {
+      question: "What is the primary cause of ice caps melting?",
+      options: [
+        { text: 'Deforestation', isCorrect: false },
+        { text: 'Global Warming', isCorrect: true },
+        { text: 'Overfishing', isCorrect: false },
+        { text: 'Air Pollution', isCorrect: false },
+      ],
+    },
+    // Add more questions here
+  ];
 
   const handleAnswer = (isCorrect) => {
     if (isCorrect) {
@@ -25,7 +30,7 @@ const Quiz = () => {
 
     if (lives <= 1 && !isCorrect) {
       navigate('/end', { state: { success: false, score } });
-    } else if (currentQuestion === 9) {
+    } else if (currentQuestion === questions.length - 1) {
       navigate('/end', { state: { success: true, score } });
     } else {
       setCurrentQuestion(currentQuestion + 1);
@@ -35,7 +40,7 @@ const Quiz = () => {
   return (
     <div 
       className="min-h-screen bg-cover bg-center flex items-center justify-center p-4"
-      style={{ backgroundImage: `url('/assets/${themeId}_theme.svg')` }}
+      style={{ backgroundImage: "url('/assets/snow_theme.svg')" }}
     >
       <div className="bg-black bg-opacity-80 p-8 rounded-lg max-w-2xl w-full">
         <div className="flex justify-between mb-6">
@@ -64,4 +69,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default FrostfallRealmQuiz;
