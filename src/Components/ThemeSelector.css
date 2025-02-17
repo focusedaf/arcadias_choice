@@ -1,0 +1,45 @@
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  @keyframes snow {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes clouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes ice {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes city {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+  
+  .animate-wave {
+    animation: wave 5s linear infinite;
+  }
+  
+  .animate-snow {
+    animation: snow 3s ease-in-out infinite;
+  }
+  
+  .animate-clouds {
+    animation: clouds 10s linear infinite;
+  }
+  
+  .animate-ice {
+    animation: ice 2s ease-in-out infinite;
+  }
+  
+  .animate-city {
+    animation: city 1s ease-in-out infinite;
+  }

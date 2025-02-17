@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import usePreventZoom from "../Components/PreventZoom";
 import ocean_theme from '../assets/ocean_theme.svg';
+import arcadia from "../assets/arcadia.svg";
+
 const AquaticAbyss = () => {
   usePreventZoom();
   const navigate = useNavigate();
@@ -39,7 +41,7 @@ const AquaticAbyss = () => {
         {/* Start Quiz Button */}
         <div className="flex justify-center">
           <button
-            onClick={() => navigate("/end")}
+            onClick={() => navigate("/quiz/aquatic")}
             className="bg-blue-500 hover:bg-blue-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
@@ -59,6 +61,11 @@ const AquaticAbyss = () => {
           </button>
         </div>
       </div>
+        <img
+                src={arcadia}
+                alt="arcadia"
+                className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
+                />
     </div>
   );
 };

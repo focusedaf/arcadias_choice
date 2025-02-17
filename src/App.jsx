@@ -13,6 +13,11 @@ import EmeraldWilds from "./Pages/EmeraldWilds";
 import CelestialZenith from "./Pages/CelestialZenith";
 import FrostfallRealm from "./Pages/FrostfallRealm";
 import MetropolisMatrix from "./Pages/MetropolisMatrix";
+import AquaticAbyssQuiz from "./Components/AquaticAbyssQuiz";
+import EmeraldWildsQuiz from "./Components/EmeraldWildsQuiz";
+import CelestialZenithQuiz from "./Components/CelestialZenithQuiz";
+import FrostfallRealmQuiz from "./Components/FrostfallRealmQuiz";
+import MetropolisMatrixQuiz from "./Components/MetropolisMatrixQuiz";
 
 
 function App() {
@@ -30,7 +35,12 @@ function App() {
         <Route path="/emerald" element={<EmeraldWilds />} />
         <Route path="/celestial" element={<CelestialZenith />} />
         <Route path="/frostfall" element={<FrostfallRealm />} />
-        <Route path="/metropolis" element={<MetropolisMatrix />} />       
+        <Route path="/metropolis" element={<MetropolisMatrix />} />    
+        <Route path="/quiz/aquatic" element={<AquaticAbyssQuiz />} />
+        <Route path="/quiz/emerald" element={<EmeraldWildsQuiz />} />
+        <Route path="/quiz/celestial" element={<CelestialZenithQuiz />} />
+        <Route path="/quiz/frostfall" element={<FrostfallRealmQuiz />} />
+        <Route path="/quiz/metropolis" element={<MetropolisMatrixQuiz />} />   
         <Route path="/end" element={<End />}></Route>
       </Routes>
     </>

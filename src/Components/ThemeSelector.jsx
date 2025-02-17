@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './ThemeSelector.css';
 
 const ThemeSelector = () => {
   const navigate = useNavigate();
@@ -10,6 +11,8 @@ const ThemeSelector = () => {
       description: "Explore the depths of ocean conservation",
       color: "from-blue-600 to-blue-900",
       icon: "🌊",
+      borderStyle: "border-blue-400 border-4",
+      animation: "animate-wave",
     },
     {
       id: "emerald",
@@ -17,6 +20,8 @@ const ThemeSelector = () => {
       description: "Venture through forest preservation",
       color: "from-green-600 to-green-900",
       icon: "🌳",
+      borderStyle: "border-green-400 border-4",
+      animation: "animate-snow",
     },
     {
       id: "celestial",
@@ -24,6 +29,8 @@ const ThemeSelector = () => {
       description: "Soar through atmospheric challenges",
       color: "from-purple-600 to-purple-900",
       icon: "☁️",
+      borderStyle: "border-purple-400 border-4",
+      animation: "animate-clouds",
     },
     {
       id: "frostfall",
@@ -31,6 +38,8 @@ const ThemeSelector = () => {
       description: "Navigate the melting ice caps",
       color: "from-cyan-600 to-cyan-900",
       icon: "❄️",
+      borderStyle: "border-cyan-400 border-4",
+      animation: "animate-ice",
     },
     {
       id: "metropolis",
@@ -38,6 +47,8 @@ const ThemeSelector = () => {
       description: "Transform urban sustainability",
       color: "from-gray-600 to-gray-900",
       icon: "🏙️",
+      borderStyle: "border-gray-400 border-4",
+      animation: "animate-city",
     },
   ];
 
@@ -51,7 +62,7 @@ const ThemeSelector = () => {
           {themes.map((theme) => (
             <button
               key={theme.id}
-              onClick={() => navigate(`/quiz/${theme.id}`)}
+              onClick={() => navigate(`/${theme.id}`)}
               className={`bg-gradient-to-br ${theme.color} p-6 rounded-lg text-white hover:scale-105 transition-transform duration-300`}
             >
               <div className="text-4xl mb-4">{theme.icon}</div>

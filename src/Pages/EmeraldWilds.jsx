@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import forest_theme from '../assets/forest_theme.svg'
 import usePreventZoom from "../Components/PreventZoom";
+import arcadia from "../assets/arcadia.svg";
+
 const EmeraldWilds = () => {
   usePreventZoom(); 
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ const EmeraldWilds = () => {
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate('/end')}
+            onClick={() => navigate('/quiz/emerald')}
             className="bg-green-500 hover:bg-green-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
@@ -46,6 +48,11 @@ const EmeraldWilds = () => {
           </button>
         </div>
       </div>
+      <img
+              src={arcadia}
+              alt="arcadia"
+              className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
+              />
     </div>
   );
 };

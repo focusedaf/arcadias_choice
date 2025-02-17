@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import snowtheme from '../assets/snow_theme.svg'
 import usePreventZoom from "../Components/PreventZoom";
+import arcadia from "../assets/arcadia.svg";
+
 const FrostfallRealm = () => {
   usePreventZoom();  
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ const FrostfallRealm = () => {
       className="min-h-screen py-12 px-4"
       
     >
-      <img src={snow_theme} alt="snowtheme" className='fixed top-0 left-0 object-center object-cover w-full h-screen -z-10'/>
+      <img src={snowtheme} alt="snowtheme" className='fixed top-0 left-0 object-center object-cover w-full h-screen -z-10'/>
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="text-center space-y-4">
           <h1 className="text-4xl text-white font-press-start">Frostfall Realm</h1>
@@ -27,7 +29,7 @@ const FrostfallRealm = () => {
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate('/end')}
+            onClick={() => navigate('/quiz/frostfall')}
             className="bg-cyan-500 hover:bg-cyan-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
@@ -46,6 +48,11 @@ const FrostfallRealm = () => {
           </button>
         </div>
       </div>
+          <img
+              src={arcadia}
+              alt="arcadia"
+              className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
+              />
     </div>
   );
 };

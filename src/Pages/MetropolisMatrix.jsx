@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import usePreventZoom from "../Components/PreventZoom";
 import urban_theme from '../assets/urban_theme.svg'
+import arcadia from "../assets/arcadia.svg";
+
 const MetropolisMatrix = () => {
   usePreventZoom(); 
   const navigate = useNavigate();
@@ -36,7 +38,7 @@ const MetropolisMatrix = () => {
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate("/end")}
+            onClick={() => navigate("/quiz/metropolis")}
             className="bg-gray-500 hover:bg-gray-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
@@ -55,6 +57,11 @@ const MetropolisMatrix = () => {
           </button>
         </div>
       </div>
+      <img
+              src={arcadia}
+              alt="arcadia"
+              className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
+              />
     </div>
   );
 };
