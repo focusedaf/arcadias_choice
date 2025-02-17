@@ -1,6 +1,7 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import usePreventZoom from "../Components/PreventZoom";
+import usePreventZoom from "../Components/index";
+import {landing} from '../Components/index';
 const themes = [
   {
     id: 'aquatic',
@@ -47,6 +48,7 @@ const themes = [
 const Home = () => {
   usePreventZoom();
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const username = localStorage.getItem('username');
 
   return (

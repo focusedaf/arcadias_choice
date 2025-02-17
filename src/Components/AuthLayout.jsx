@@ -9,7 +9,7 @@ const AuthLayout = () => {
     e.preventDefault();
     if (username.trim()) {
       localStorage.setItem('username', username);
-      navigate('/');
+      navigate('/home');
     }
   };
 
@@ -33,7 +33,7 @@ const AuthLayout = () => {
             type="submit"
             className="w-full bg-green-500 hover:bg-green-600 text-white font-press-start py-3 rounded transition-colors duration-300"
           >
-            Begin Journey
+            Begin Adventure
           </button>
         </form>
       </div>
