@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import snowtheme from '../assets/snow_theme.svg'
 import usePreventZoom from "../Components/PreventZoom";
 const FrostfallRealm = () => {
   usePreventZoom();  
@@ -7,9 +8,10 @@ const FrostfallRealm = () => {
 
   return (
     <div 
-      className="min-h-screen bg-cover bg-center py-12 px-4"
-      style={{ backgroundImage: "url('/snow theme.svg')" , backgroundSize: "cover",  backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", width: "100vw", height: "100vh", overflow: "hidden", position: "absolute", top: 0, left: 0, }}
+      className="min-h-screen py-12 px-4"
+      
     >
+      <img src={snow_theme} alt="snowtheme" className='fixed top-0 left-0 object-center object-cover w-full h-screen -z-10'/>
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="text-center space-y-4">
           <h1 className="text-4xl text-white font-press-start">Frostfall Realm</h1>
