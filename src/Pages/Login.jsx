@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import usePreventZoom from "../Components/PreventZoom";
 import { AuthLayout } from '../Components/index';
 import mountain_landing from '../assets/mountain_landing.svg'
+import arcadia from "../assets/arcadia.svg";
+
 const Login = () => {
   usePreventZoom(); 
   return (
@@ -13,6 +15,11 @@ const Login = () => {
         className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10"
       />
       <AuthLayout />
+      <img
+              src={arcadia}
+              alt="arcadia"
+              className="w-90 h-90 absolute bottom-8 right-0 transform translate-x-15 translate-y-10"
+            />
     </div>
   );
 };

@@ -1,54 +1,8 @@
-import {React} from 'react';
-import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
-import {PreventZoom} from "../Components/index";
-import {Landing} from '../Components/index';
-=======
+import { React } from "react";
+import { useNavigate } from "react-router-dom";
 import usePreventZoom from "../Components/PreventZoom";
-
->>>>>>> 9ddfc2b1b2ce5be2330de1788eaa05b6382d7e8b
-const themes = [
-  {
-    id: 'aquatic',
-    name: 'Aquatic Abyss',
-    description: 'Explore the depths of ocean conservation',
-    color: 'from-blue-600 to-blue-900',
-    icon: '🌊',
-    intro: "The ocean… vast, deep, and full of wonders. But it is fading. Plastic islands drift in the currents, coral reefs bleach, and marine life suffers. You must prove your wisdom to save it."
-  },
-  {
-    id: 'emerald',
-    name: 'Emerald Wilds',
-    description: 'Venture through forest preservation',
-    color: 'from-green-600 to-green-900',
-    icon: '🌳',
-    intro: "This land was once lush and full of life. But greed has scarred it—trees felled, rivers poisoned, creatures displaced. Show me you understand nature's balance."
-  },
-  {
-    id: 'celestial',
-    name: 'Celestial Zenith',
-    description: 'Soar through atmospheric challenges',
-    color: 'from-purple-600 to-purple-900',
-    icon: '☁️',
-    intro: "The skies were once free… but now, pollution scars the heavens. The storms grow wild. Prove you understand, or risk falling into the void."
-  },
-  {
-    id: 'frostfall',
-    name: 'Frostfall Realm',
-    description: 'Navigate the melting ice caps',
-    color: 'from-cyan-600 to-cyan-900',
-    icon: '❄️',
-    intro: "The ice was once eternal, but now it melts. The tundra weakens, the creatures vanish. Can you restore the balance before all is lost?"
-  },
-  {
-    id: 'metropolis',
-    name: 'Metropolis Matrix',
-    description: 'Transform urban sustainability',
-    color: 'from-gray-600 to-gray-900',
-    icon: '🏙️',
-    intro: "Technology was supposed to elevate us… instead, it consumes us. Smog blankets the sky, machines never rest. Can you be the architect of change?"
-  }
-];
+import arcadia from "../assets/arcadia.svg";
+import mountain_landing from "../assets/mountain_landing.svg";
 
 const Home = () => {
   usePreventZoom();
@@ -109,7 +63,7 @@ const Home = () => {
       <img
         src={arcadia}
         alt="arcadia"
-        className="w-70 h-70 absolute bottom-0 right-0 transform translate-x-15 translate-y-10"
+        className="w-80 h-90 absolute bottom-0 right-0 transform translate-x-15 translate-y-10"
       />
     </div>
   );

@@ -31,7 +31,7 @@ const Landing = () => {
       <img
         src={arcadia}
         alt="arcadia"
-        className="w-70 h-70 absolute bottom-0 right-0 transform translate-x-15 translate-y-10"
+        className="w-90 h-90 absolute bottom-8 right-0 transform translate-x-15 translate-y-10"
       />
     </div>
   );

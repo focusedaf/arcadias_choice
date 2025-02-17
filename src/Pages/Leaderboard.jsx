@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import {LeaderboardItem} from '../Components/index';
 import usePreventZoom from "../Components/PreventZoom";
 import leaderboard from '../assets/leaderboard.svg'
+import arcadia from "../assets/arcadia.svg";
+
 // Mock data stays the same
 const leaderboardData = [
   { id: 1, playerName: "DragonSlayer", score: 125000 },
@@ -19,9 +21,7 @@ const Leaderboard = () => {
   const navigate = useNavigate();
   
   return (
-    <div
-    
-    >
+    <div>
       <img
         src={leaderboard}
         alt="leaderboard"
@@ -50,6 +50,11 @@ const Leaderboard = () => {
       >
         Home
       </button>
+      <img
+              src={arcadia}
+              alt="arcadia"
+              className="w-80 h-90 absolute bottom-3 right-0 transform translate-x-15 translate-y-10"
+            />
     </div>
   );
 };
