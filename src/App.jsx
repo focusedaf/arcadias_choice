@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from "react-router-dom";
-import Landing from "./Components/Landing";
+import Landing from "./Pages/Landing";
 import Home from "./Pages/Home";
 import Leaderboard from "./Pages/Leaderboard";
 import Login from "./Pages/Login";
