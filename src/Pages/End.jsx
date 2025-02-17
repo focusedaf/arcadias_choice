@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import usePreventZoom from "../Components/PreventZoom";
 const End = () => {
+  usePreventZoom(); 
   const location = useLocation();
   const navigate = useNavigate();
   const { success, score } = location.state || {};
