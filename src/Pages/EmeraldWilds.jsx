@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import forest_theme from '../assets/forest_theme.svg'
 import usePreventZoom from "../Components/PreventZoom";
 const EmeraldWilds = () => {
   usePreventZoom(); 
@@ -7,9 +8,10 @@ const EmeraldWilds = () => {
 
   return (
     <div 
-      className="min-h-screen bg-cover bg-center py-12 px-4"
-      style={{ backgroundImage: "url('/forest theme.svg')" , backgroundSize: "cover",  backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", width: "100vw", height: "100vh", overflow: "hidden", position: "absolute", top: 0, left: 0, }}
+      className="min-h-screen py-12 px-4"
+      
     >
+      <img src={forest_theme} alt="forest theme" className='fixed top-0 left-0 object-cover object-center w-full h-screen -z-10' />
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="text-center space-y-4">
           <h1 className="text-4xl text-white font-press-start">Emerald Wilds</h1>
