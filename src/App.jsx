@@ -7,6 +7,7 @@ import Leaderboard from "./Components/Leaderboard";
 import Login from "./Pages/Login";
 import Quiz from "./Pages/Quiz";
 import End from "./Pages/End";
+import ThemeSelection from './Pages/ThemeSelection';
 import AquaticAbyss from './Components/AquaticAbyss';
 import EmeraldWilds from './Components/EmeraldWilds';
 import CelestialZenith from './Components/CelestialZenith';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/quiz" element={<Quiz />}></Route>
+        <Route path="/themeselection" element={<ThemeSelection />}></Route>
         <Route path="/aquatic" element={<AquaticAbyss />} />
         <Route path="/emerald" element={<EmeraldWilds />} />
         <Route path="/celestial" element={<CelestialZenith />} />
