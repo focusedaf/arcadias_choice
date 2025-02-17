@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import LeaderboardItem from './LeaderboardItem';
+import {LeaderboardItem} from '../Components/index';
 
 // Mock data stays the same
 const leaderboardData = [
