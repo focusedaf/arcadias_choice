@@ -69,4 +69,3 @@ const MetropolisMatrixQuiz = () => {
 };
 
 export default MetropolisMatrixQuiz;
-          
