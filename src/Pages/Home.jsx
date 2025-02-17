@@ -1,7 +1,12 @@
 import {React} from 'react';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import {PreventZoom} from "../Components/index";
 import {Landing} from '../Components/index';
+=======
+import usePreventZoom from "../Components/PreventZoom";
+
+>>>>>>> 9ddfc2b1b2ce5be2330de1788eaa05b6382d7e8b
 const themes = [
   {
     id: 'aquatic',
@@ -46,27 +51,17 @@ const themes = [
 ];
 
 const Home = () => {
-  PreventZoom();
+  usePreventZoom();
   const navigate = useNavigate();
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem("username");
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center py-12 px-4 "
-      style={{
-        backgroundImage: "url('/mountain_landing.svg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        minHeight: "100vh",
-        width: "100%",
-        overflow: "hidden",
-        position: "absolute",
-        top: 0,
-        left: 0,
-      }}
-    >
+    <div className=" min-h-screen  py-12 px-4 ">
+      <img
+        src={mountain_landing}
+        alt="mountain"
+        className=" fixed top-0 left-0 w-full h-screen object-cover object-center -z-10 "
+      />
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Welcome Section */}
         <div className="text-center space-y-6">
@@ -87,31 +82,6 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Theme Selection */}
-        <div>
-          <h2 className="text-3xl text-white font-press-start mb-8 text-center">
-            Choose Your Realm
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {themes.map((theme) => (
-              <div
-                key={theme.id}
-                className={`bg-gradient-to-br ${theme.color} p-6 rounded-lg text-white 
-                   transform transition-all duration-300 hover:scale-105 
-                   hover:shadow-xl cursor-pointer`}
-                onClick={() => navigate(`/${theme.id}`)} // Updated navigation path
-              >
-                <div className="text-4xl mb-4">{theme.icon}</div>
-                <h3 className="text-xl font-press-start mb-2">{theme.name}</h3>
-                <p className="text-sm opacity-80 mb-4">{theme.description}</p>
-                <div className="text-xs italic border-t border-white/20 pt-4">
-                  {theme.intro}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Game Instructions */}
         <div className="bg-black/50 backdrop-blur-sm p-8 rounded-lg text-white">
           <h3 className="text-2xl font-press-start mb-4">How to Play</h3>
@@ -128,8 +98,19 @@ const Home = () => {
             <li>Complete the quiz successfully to achieve the good ending</li>
             <li>Your final score will be recorded on the leaderboard</li>
           </ul>
+          <button
+            onClick={() => navigate("/themeselection")}
+            className=" bg-blue-500 hover:bg-blue-600 text-white font-press-start py-3 px-5 rounded transition-colors duration-300 mt-2"
+          >
+            Choose Realms
+          </button>
         </div>
       </div>
+      <img
+        src={arcadia}
+        alt="arcadia"
+        className="w-70 h-70 absolute bottom-0 right-0 transform translate-x-15 translate-y-10"
+      />
     </div>
   );
 };

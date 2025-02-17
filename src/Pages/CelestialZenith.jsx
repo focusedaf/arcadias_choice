@@ -1,30 +1,42 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import usePreventZoom from "../Components/PreventZoom";
+import sky_theme from '../assets/sky_theme.svg'
 const CelestialZenith = () => {
+  usePreventZoom();
   const navigate = useNavigate();
 
   return (
-    <div 
-      className="min-h-screen bg-cover bg-center py-12 px-4"
-      style={{ backgroundImage: "url('/sky theme.svg')" , backgroundSize: "cover",  backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", width: "100vw", height: "100vh", overflow: "hidden", position: "absolute", top: 0, left: 0, }}
+    <div
+      className="min-h-screen py-12 px-4"
+      
     >
+      <img
+        src={sky_theme}
+        alt="sky theme"
+        className="fixed top-0 left-0 object-cover object-center w-full h-screen -z-10"
+      />
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="text-center space-y-4">
-          <h1 className="text-4xl text-white font-press-start">Celestial Zenith</h1>
-          <p className="text-xl text-white/90">Soar through atmospheric challenges</p>
+          <h1 className="text-4xl text-white font-press-start">
+            Celestial Zenith
+          </h1>
+          <p className="text-xl text-white/90">
+            Soar through atmospheric challenges
+          </p>
         </div>
 
         <div className="bg-purple-900/70 backdrop-blur-sm p-8 rounded-lg text-white">
           <p className="text-lg leading-relaxed">
-            The skies were once free… but now, pollution scars the heavens. 
-            The storms grow wild. Prove you understand, or risk falling into the void.
+            The skies were once free… but now, pollution scars the heavens. The
+            storms grow wild. Prove you understand, or risk falling into the
+            void.
           </p>
         </div>
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate('/end')}
+            onClick={() => navigate("/end")}
             className="bg-purple-500 hover:bg-purple-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
@@ -35,7 +47,7 @@ const CelestialZenith = () => {
 
         <div className="flex justify-center mt-4">
           <button
-            onClick={() => navigate('/home')}
+            onClick={() => navigate("/home")}
             className="text-white/80 hover:text-white font-press-start 
                      py-2 px-4 rounded-lg transition-colors duration-300"
           >

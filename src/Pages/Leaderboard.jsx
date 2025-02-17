@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import {LeaderboardItem} from '../Components/index';
-
+import usePreventZoom from "../Components/PreventZoom";
+import leaderboard from '../assets/leaderboard.svg'
 // Mock data stays the same
 const leaderboardData = [
   { id: 1, playerName: "DragonSlayer", score: 125000 },
@@ -14,19 +15,21 @@ const leaderboardData = [
 ];
 
 const Leaderboard = () => {
+  usePreventZoom(); 
   const navigate = useNavigate();
   
   return (
-    <div 
-      style={{
-        backgroundImage: "url('/leaderboard.svg')" , backgroundSize: "cover",  backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", width: "100vw", height: "100vh", overflow: "hidden", position: "absolute", top: 0, left: 0,
-      }}
+    <div
+    
     >
+      <img
+        src={leaderboard}
+        alt="leaderboard"
+        className="fixed top-0 left-0  h-screen w-full object-cover object-center  -z-10"
+      />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-8">
-          Leaderboard
-        </h1>
-        
+        <h1 className="text-3xl font-bold text-center mb-8">Leaderboard</h1>
+
         <div className="max-w-3xl mx-auto space-y-2">
           {leaderboardData.map((player, index) => (
             <LeaderboardItem
@@ -42,13 +45,12 @@ const Leaderboard = () => {
 
       <div className="flex justify-center mt-8"></div>
       <button
-            onClick={() => navigate('/home')}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
-          >
-            Home
-          </button>
-      </div>
-   
+        onClick={() => navigate("/home")}
+        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
+      >
+        Home
+      </button>
+    </div>
   );
 };
 
