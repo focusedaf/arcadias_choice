@@ -18,7 +18,7 @@ const Login = () => {
       <img
               src={arcadia}
               alt="arcadia"
-              className="w-90 h-90 absolute bottom-8 right-0 transform translate-x-15 translate-y-10"
+              className="w-90 h-90 fixed bottom-8 right-2 transform translate-x-15 translate-y-10"
             />
     </div>
   );

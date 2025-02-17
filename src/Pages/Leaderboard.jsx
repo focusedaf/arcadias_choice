@@ -53,7 +53,7 @@ const Leaderboard = () => {
       <img
               src={arcadia}
               alt="arcadia"
-              className="w-80 h-90 absolute bottom-3 right-0 transform translate-x-15 translate-y-10"
+              className="w-80 h-90 fixed bottom-3 right-0 transform translate-x-15 translate-y-10"
             />
     </div>
   );

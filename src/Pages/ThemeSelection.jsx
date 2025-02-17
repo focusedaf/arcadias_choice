@@ -22,7 +22,7 @@ const ThemeSelection = () => {
       <img
               src={arcadia}
               alt="arcadia"
-              className="w-80 h-90 absolute bottom-1 right-2 transform translate-x-15 translate-y-10"
+              className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
             />
     </div>
   );
