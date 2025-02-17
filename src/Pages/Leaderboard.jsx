@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import {LeaderboardItem} from '../Components/index';
-
+import usePreventZoom from "../Components/PreventZoom";
 // Mock data stays the same
 const leaderboardData = [
   { id: 1, playerName: "DragonSlayer", score: 125000 },
@@ -14,6 +14,7 @@ const leaderboardData = [
 ];
 
 const Leaderboard = () => {
+  usePreventZoom(); 
   const navigate = useNavigate();
   
   return (

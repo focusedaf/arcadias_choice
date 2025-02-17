@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import usePreventZoom from "../Components/PreventZoom";
 const FrostfallRealm = () => {
+  usePreventZoom();  
   const navigate = useNavigate();
 
   return (

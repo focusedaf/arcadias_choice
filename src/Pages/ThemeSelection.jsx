@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import usePreventZoom from "../Components/PreventZoom";
 const themes = [
   {
     id: 'aquatic',
@@ -40,6 +40,7 @@ const themes = [
 ];
 
 const ThemeSelection = () => {
+  usePreventZoom();
   const navigate = useNavigate();
 
   return (
