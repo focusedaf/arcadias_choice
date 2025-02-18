@@ -5,7 +5,6 @@ import Landing from "./Pages/Landing";
 import Home from "./Pages/Home";
 import Leaderboard from "./Pages/Leaderboard";
 import Login from "./Pages/Login";
-import Quiz from "./Pages/Quiz";
 import End from "./Pages/End";
 import ThemeSelection from './Pages/ThemeSelection';
 import AquaticAbyss from "./Pages/AquaticAbyss";
