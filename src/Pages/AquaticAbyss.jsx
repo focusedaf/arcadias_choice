@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import usePreventZoom from "../Components/PreventZoom";
 import ocean_theme from '../assets/ocean_theme.svg';
 import arcadia from "../assets/arcadia.svg";
+import { AquaticAbyssQuiz } from '../Components/index';
 
 const AquaticAbyss = () => {
   usePreventZoom();
+  const [visible,setVisible] = useState(false);
   const navigate = useNavigate();
 
   return (
-    <div
-      className="min-h-screen  py-12 px-4"
-    
-    >
+    <div className="min-h-screen  py-12 px-4">
       <img
         src={ocean_theme}
         alt="ocean theme"
@@ -41,7 +40,7 @@ const AquaticAbyss = () => {
         {/* Start Quiz Button */}
         <div className="flex justify-center">
           <button
-            onClick={() => navigate("/quiz/aquatic")}
+            onClick={() => setVisible(true)}
             className="bg-blue-500 hover:bg-blue-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
@@ -50,6 +49,15 @@ const AquaticAbyss = () => {
           </button>
         </div>
 
+        {/* to display the themed quiz boxes */}
+        <div
+          className={`fixed top-0 right-0 h-screen w-full transition-transform transform ${
+            visible ? "translate-x-0" : "translate-x-full"
+          } z-50`}
+        >
+          <AquaticAbyssQuiz />
+        </div>
+        
         {/* Back Button */}
         <div className="flex justify-center mt-4">
           <button
@@ -61,11 +69,11 @@ const AquaticAbyss = () => {
           </button>
         </div>
       </div>
-        <img
-                src={arcadia}
-                alt="arcadia"
-                className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
-                />
+      <img
+        src={arcadia}
+        alt="arcadia"
+        className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
+      />
     </div>
   );
 };

@@ -26,3 +26,4 @@ script.md
 .env.local
 
 # Updated gitignore
+env.download
