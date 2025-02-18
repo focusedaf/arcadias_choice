@@ -41,23 +41,13 @@ const AquaticAbyssQuiz = ({ label, className, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className={`
-        mt-10 mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl 
-        cursor-pointer p-[1.5px] animate-border-rotate
-        border
-        bg-[conic-gradient(from_var(--border-angle)_at_50%_50%,var(--tw-gradient-stops))] 
-        from-blue-300 via-blue-600 to-blue-800 
-        ${className || ""}
-      `}
+      className={`mt-10 mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl cursor-pointer p-[1.5px] 
+    animate-border-rotate bg-conic/[from_var(--border-angle)] from-sky-300 via-blue-800 to-blue-900 ${
+      className || ""
+    }`}
     >
-      <div
-        className="
-          w-full h-full rounded-xl px-100 py-60 pr-2
-          bg-[linear-gradient(to_right,var(--tw-gradient-stops))]
-          from-blue-200 via-blue-400 to-blue-600 
-        "
-      >
-    
+      <div className="w-full h-full rounded-xl px-10 py-60 pr-2 bg-neutral-900">
+        
         {label}
       </div>
     </div>
