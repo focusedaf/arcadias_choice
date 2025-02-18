@@ -34,11 +34,11 @@ const Quiz = () => {
 
   return (
     <div className="w-screen min-h-screen absolute top-0 left-0">
-      <AquaticAbyssQuiz />
-      {/* <CelestialZenithQuiz />
-      <EmeraldWildsQuiz />
-      <FrostfallRealmQuiz />
-      <MetropolisMatrixQuiz /> */}
+      {/* <AquaticAbyssQuiz /> */}
+      {/* <CelestialZenithQuiz /> */}
+      {/* <EmeraldWildsQuiz /> */}
+      {/* <FrostfallRealmQuiz /> */}
+      {/* <MetropolisMatrixQuiz /> */}
     </div>
   );
 };
