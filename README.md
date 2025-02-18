@@ -44,9 +44,10 @@ Arcadia's Choice combines the thrill of interactive storytelling with an educati
 
 ##  Tech Stack  
 
-- **Frontend:** React, Tailwind CSS, JavaScript, Superflex AI  
-- **Backend:** Firebase/Supabase (for authentication & leaderboard)  
-
+- **Frontend:** React, Tailwind CSS, JavaScript, ness.css,Superflex AI  
+- **Backend:** Firebase (for authentication & leaderboard)  
+- **Questions:** Gemini API
+- **Deployment:** Vercel
 
 ## How to Run the Project
 1. Clone the repository:
