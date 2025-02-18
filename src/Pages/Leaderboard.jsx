@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import {LeaderboardItem} from '../Components/index';
 import usePreventZoom from "../Components/PreventZoom";
 import leaderboard from '../assets/leaderboard.svg'
 import arcadia from "../assets/arcadia.svg";
+import audio from "../assets/After We Win - Nathan Moore.mp3";
 
 // Mock data stays the same
 const leaderboardData = [
@@ -19,7 +20,18 @@ const leaderboardData = [
 const Leaderboard = () => {
   usePreventZoom(); 
   const navigate = useNavigate();
+  const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(new Audio(audio));
   
+    const handlePlayPause = () => {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    };
+
   return (
     <div>
       <img
@@ -55,6 +67,12 @@ const Leaderboard = () => {
               alt="arcadia"
               className="w-80 h-90 fixed bottom-3 right-0 transform translate-x-15 translate-y-10"
             />
+            <button
+        onClick={handlePlayPause}
+        className="fixed bottom-16 left-4 bg-blue-500 hover:bg-blue-600 text-white font-press-start py-4 px-8 rounded-full transition-colors duration-300"
+      >
+        {isPlaying ? "Pause" : "Play"}
+      </button>
     </div>
   );
 };

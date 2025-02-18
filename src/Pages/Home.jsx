@@ -1,13 +1,26 @@
-import { React } from "react";
+import { React, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import usePreventZoom from "../Components/PreventZoom";
 import arcadia from "../assets/arcadia.svg";
 import mountain_landing from "../assets/mountain_landing.svg";
+import audio from "../assets/After We Win - Nathan Moore.mp3";
+
 
 const Home = () => {
   usePreventZoom();
   const navigate = useNavigate();
   const username = localStorage.getItem("username");
+const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(new Audio(audio));
+
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <div className=" min-h-screen  py-12 px-4 ">
@@ -65,6 +78,12 @@ const Home = () => {
         alt="arcadia"
         className="w-80 h-90 fixed bottom-0 right-0 transform translate-x-15 translate-y-10"
       />
+      <button
+        onClick={handlePlayPause}
+        className="fixed bottom-16 left-4 bg-blue-500 hover:bg-blue-600 text-white font-press-start py-4 px-8 rounded-full transition-colors duration-300"
+      >
+        {isPlaying ? "Pause" : "Play"}
+      </button>
     </div>
   );
 };
