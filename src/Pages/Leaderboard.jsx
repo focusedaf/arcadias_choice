@@ -72,7 +72,7 @@ const Leaderboard = () => {
   
       <button
         onClick={() => navigate("/home")}
-        className="nes-btn is-success mt-8 w-50 h-20 fixed -bottom-17 -right-110 transform -translate-x-1/2"
+        className="nes-btn is-success mt-8 w-50 h-20 fixed -bottom-17 -right-40 transform -translate-x-1/2"
       >
         Home
       </button>
