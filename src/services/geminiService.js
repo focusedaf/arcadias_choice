@@ -12,7 +12,7 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 const QUIZ_PROMPT = `Generate 10 pixel-style, scenario-based multiple-choice quiz questions related to the theme {THEME}, where the player's choices directly influence the game world. Each scenario should be short, with pixel art-style language, and include four options (one correct, three incorrect). Keep the choices brief and impactful. All questions need to be real world problems.
 
 ## Output Format:
-Generate a JSON object with the following structure, do not use backticks or markdown inside, provide in VALID JSON FORMAT please make sure to not in any case result in errors like this - Unexpected token '', json { "... is not valid JSON:
+Generate a JSON object with the following structure, do not use backticks or markdown inside, provide in VALID JSON FORMAT please make sure to not to, in any case result in errors like this - Unexpected token '', json { "... is not valid JSON:
 
 {
   "theme": "{theme_name}",
