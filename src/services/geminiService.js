@@ -87,7 +87,7 @@ export async function generateQuizQuestions(theme) {
       throw new Error("Theme is required");
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-turbo" });
     
     if (!model) {
       throw new Error("Failed to initialize Gemini model");
