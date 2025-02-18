@@ -12,7 +12,7 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 const QUIZ_PROMPT = `Generate 10 pixel-style, scenario-based multiple-choice quiz questions related to the theme {THEME}, where the player's choices directly influence the game world. Each scenario should be short, with pixel art-style language, and include four options (one correct, three incorrect). Keep the choices brief and impactful. All questions need to be real world problems.
 
 ## Output Format:
-Generate a JSON object with the following structure, do not use backticks or markdown inside, provide in VALID JSON FORMAT please make sure to not to, in any case result in errors like this - Unexpected token '', json { "... is not valid JSON:
+Generate a JSON object with the following structure, do not use backticks or markdown inside  only brackets are allowed, provide in VALID JSON FORMAT and stricly follow the given json structure bellow:
 
 {
   "theme": "{theme_name}",
@@ -88,27 +88,41 @@ export async function generateQuizQuestions(theme) {
     }
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-8b" });
-    
+
     if (!model) {
       throw new Error("Failed to initialize Gemini model");
     }
 
     // Replace the placeholder with the actual theme
     const prompt = QUIZ_PROMPT.replace(/{THEME}/g, theme);
-    
+
     console.log("Sending request to Gemini API with prompt:", prompt);
     const result = await model.generateContent(prompt);
-    
+
     if (!result || !result.response) {
       throw new Error("No response from Gemini API");
     }
 
-    const text = result.response.text();
-    console.log("Received response:", text);
+    // Get the raw text response
+    const text = await result.response.text();
+    console.log("Received raw response:", text);
 
-    // Parse the JSON response
-    const parsedData = JSON.parse(text);
-    
+    // Clean up the response by:
+    // - Removing markdown artifacts
+    // - Removing JavaScript-style comments
+    // - Ensuring no trailing commas
+    let cleanedText = text
+      .replace(/```json|```/g, '')                // Remove markdown artifacts
+      .replace(/\/\/.*$/gm, '')                   // Remove single-line comments
+      .replace(/\/\*[\s\S]*?\*\//g, '')           // Remove multi-line comments
+      .replace(/,\s*}/g, '}')                     // Remove trailing commas
+      .replace(/,\s*]/g, ']');                    // Remove trailing commas in arrays
+
+    console.log("Cleaned response:", cleanedText);
+
+    // Parse the cleaned JSON response
+    const parsedData = JSON.parse(cleanedText);
+
     if (!parsedData || !parsedData.questions) {
       throw new Error("Invalid response format from API");
     }
