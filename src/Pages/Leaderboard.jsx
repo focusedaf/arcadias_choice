@@ -70,11 +70,11 @@ const Leaderboard = () => {
       <img
         src={arcadia}
         alt="arcadia"
-        className="w-80 h-90 fixed bottom-3 right-0 transform translate-x-15 translate-y-10"
+        className="w-48 md:w-80 h-auto fixed bottom-0 right-0 transform translate-x-15 translate-y-0 opacity-75 md:opacity-100"
       />
       <button
         onClick={handlePlayPause}
-        className="fixed bottom-16 left-4 bg-blue-500 hover:bg-blue-600 text-white font-press-start py-4 px-8 rounded-full transition-colors duration-300"
+        className="fixed bottom-8 left-4 bg-blue-500 hover:bg-blue-600 text-white font-press-start py-3 px-6 rounded-full transition-colors duration-300 text-sm md:text-base"
       >
         {isPlaying ? "Pause" : "Play"}
       </button>
