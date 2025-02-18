@@ -146,43 +146,59 @@ const Quiz = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-white relative">
-          <img
-            src={ocean_theme}
-            alt="Ocean"
-            className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10"
-          />
-    <div className="quiz-container">
-      <h2>Question {currentQuestion + 1} of {questions.length}</h2>
-      <p>{questions[currentQuestion].question}</p>
-      
-      <div className="options">
-        {questions[currentQuestion].options.map((option, index) => (
-          <button
-            key={index}
-            onClick={() => handleAnswer(index)}
-            disabled={showFeedback}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
+    <div className="text-white ">
+      <img
+        src={ocean_theme}
+        alt="Ocean"
+        className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10"
+      />
 
-      {showFeedback && (
-        <div className={`feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
-          <p>{isCorrect ? 'Correct!' : 'Incorrect!'}</p>
-          <p>Tip: {questions[currentQuestion].tip}</p>
-          <button onClick={handleNext}>
-            {currentQuestion < questions.length - 1 ? 'Next Question' : 'See Results'}
-          </button>
+      <div className="quiz-container">
+        <div
+          className="mt-10 mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl cursor-pointer p-[1.5px] animate-border-rotate bg-conic/[from_var(--border-angle)] from-blue-300 via-blue-600 to-blue-800"
+        >
+          <div
+            className="w-full h-full rounded-xl px-10 py-60 pr-2
+          bg-neutral-900"
+          >
+            <h2>
+              Question {currentQuestion + 1} of {questions.length}
+            </h2>
+            <p>{questions[currentQuestion].question}</p>
+
+            <div className="options">
+              {questions[currentQuestion].options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleAnswer(index)}
+                  disabled={showFeedback}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+
+            {showFeedback && (
+              <div
+                className={`feedback ${isCorrect ? "correct" : "incorrect"}`}
+              >
+                <p>{isCorrect ? "Correct!" : "Incorrect!"}</p>
+                <p>Tip: {questions[currentQuestion].tip}</p>
+                <button onClick={handleNext}>
+                  {currentQuestion < questions.length - 1
+                    ? "Next Question"
+                    : "See Results"}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-      )}
-    </div>
-     <img
-             src={arcadia}
-             alt="arcadia"
-             className="w-90 h-90 fixed bottom-10 right-0 transform translate-x-15 translate-y-10"
-           />
+      </div>
+      <img
+        src={arcadia}
+        alt="arcadia"
+        className="w-90 h-90 fixed bottom-10 right-0 transform translate-x-15 translate-y-10"
+      />
     </div>
   );
 };
