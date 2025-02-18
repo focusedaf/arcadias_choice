@@ -11,7 +11,7 @@ const MetropolisMatrix = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen  py-12 px-4">
+    <div className="min-h-screen py-12 px-4">
       <img
         src={urban_theme}
         alt="urban theme"
@@ -58,7 +58,7 @@ const MetropolisMatrix = () => {
         <div className="flex justify-center mt-4">
           <button
             onClick={() => navigate("/home")}
-            className="text-white/80 hover:text-white font-press-start 
+            className="text-white bg-gray-600 hover:bg-gray-700 font-press-start 
                      py-2 px-4 rounded-lg transition-colors duration-300"
           >
             Return to Realms

@@ -106,7 +106,17 @@ const AquaticAbyssQuiz = () => {
   const currentQ = questions[currentQuestion];
 
   return (
-    <div style={{minHeight: '100vh', position: 'relative', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+    <div style={{
+      minHeight: '100vh',
+      position: 'relative',
+      padding: '20px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflowY: 'auto',
+      maxHeight: '100vh'
+    }}>
       <img src={ocean_theme} alt="Ocean" className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10" />
       
       <div className="bubbles" style={{position: 'fixed', width: '100%', height: '100%', overflow: 'hidden', zIndex: -5}}>
@@ -232,7 +242,7 @@ const AquaticAbyssQuiz = () => {
         </div>
       </div>
       
-      <div style={{position: 'fixed', bottom: '10px', right: '10px', zIndex: 10}}>
+      <div style={{position: 'fixed', bottom: '10px', right: '10px', zIndex: 10}} className="hidden md:block">
         <img 
           src={arcadia} 
           alt="arcadia" 

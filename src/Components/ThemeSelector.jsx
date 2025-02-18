@@ -134,7 +134,7 @@ const ThemeSelector = () => {
         <div className="mt-8 md:mt-12 text-center">
           <button 
             onClick={() => navigate('/home')} 
-            className="nes-btn relative text-white font-['Press_Start_2P'] text-sm tracking-wide hover:scale-105 transition-all duration-300 w-full md:w-auto"
+            className="nes-btn relative text-white font-['Press_Start_2P'] text-sm tracking-wide hover:scale-105 transition-all duration-300 w-full md:w-auto bg-indigo-600 hover:bg-indigo-700"
           >
             ⟵ Return Home
           </button>

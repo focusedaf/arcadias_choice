@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import usePreventZoom from "../Components/PreventZoom";
-import mountain_landing from '../assets/mountain_landing.svg';
+import good_end from '../assets/good_end.svg';
 import volcano_end from '../assets/volcanoend.svg';
 import arcadia from "../assets/arcadia.svg";
 import audio from "../assets/After We Win - Nathan Moore.mp3";
@@ -14,9 +14,8 @@ const End = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(new Audio(audio));
 
-  const score = localStorage.getItem('score');
+  const score = parseInt(localStorage.getItem('score') || '0');
   const userId = localStorage.getItem('userId');
-  const hearts = localStorage.getItem('hearts') || 3; // Get remaining hearts, default to 3
 
   const handlePlayPause = () => {
     if (isPlaying) {
@@ -33,7 +32,7 @@ const End = () => {
         try {
           const userRef = doc(db, 'users', userId);
           await updateDoc(userRef, {
-            score: parseInt(score), 
+            score: score, 
           });
           console.log('Score updated successfully');
         } catch (error) {
@@ -45,25 +44,25 @@ const End = () => {
     updateScore();
   }, [userId, score]);
 
-  const isGameOver = hearts <= 0;
+  const isGoodEnding = score > 3;
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4">
       <img
-        src={isGameOver ? volcano_end : mountain_landing}
-        alt={isGameOver ? "volcano end" : "mountain"}
+        src={isGoodEnding ? good_end : volcano_end}
+        alt={isGoodEnding ? "mountain" : "volcano end"}
         className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10"
       />
       <div className="bg-black bg-opacity-70 p-8 rounded-lg text-center max-w-xl">
         <h2 className="text-3xl font-press-start mb-6 text-white">
-          {isGameOver ? 'Game Over' : (score > 0 ? 'Victory! You are one step cloder to saving the planet' : 'Game Over')}
+          {isGoodEnding ? 'Victory! You are one step closer to saving the planet' : 'Game Over'}
         </h2>
-        {isGameOver ? (
+        {isGoodEnding ? (
+          <p className="text-xl mb-8 text-white">Final Score: {score}</p>
+        ) : (
           <p className="text-xl mb-8 text-red-400">
             You lost. How are you gonna save the planet now?
           </p>
-        ) : (
-          <p className="text-xl mb-8 text-white">Final Score: {score}</p>
         )}
         <div className="space-y-4">
           <button

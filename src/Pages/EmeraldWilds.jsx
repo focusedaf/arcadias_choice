@@ -58,7 +58,7 @@ const EmeraldWilds = () => {
         <div className="flex justify-center mt-4">
           <button
             onClick={() => navigate("/home")}
-            className="text-white/80 hover:text-white font-press-start 
+            className="text-white bg-green-600 hover:bg-green-700 font-press-start 
                      py-2 px-4 rounded-lg transition-colors duration-300"
           >
             Return to Realms
