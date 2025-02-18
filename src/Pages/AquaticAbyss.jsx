@@ -50,7 +50,7 @@ const AquaticAbyss = () => {
 
         {/* to display the themed quiz boxes */}
         <div
-          className={`fixed top-20 right-0 h-screen w-full transition-transform transform ${
+          className={`fixed top-0 right-0 h-screen w-full transition-transform transform ${
             visible ? "translate-x-0" : "translate-x-full"
           } z-50`}
         >
