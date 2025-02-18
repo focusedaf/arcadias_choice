@@ -56,7 +56,7 @@ const End = () => {
       />
       <div className="bg-black bg-opacity-70 p-8 rounded-lg text-center max-w-xl">
         <h2 className="text-3xl font-press-start mb-6 text-white">
-          {isGameOver ? 'Game Over' : (score > 0 ? 'Victory!' : 'Game Over')}
+          {isGameOver ? 'Game Over' : (score > 0 ? 'Victory! You are one step cloder to saving the planet' : 'Game Over')}
         </h2>
         {isGameOver ? (
           <p className="text-xl mb-8 text-red-400">
