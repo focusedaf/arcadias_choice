@@ -1,86 +1,190 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ocean_theme from "../assets/ocean_theme.svg";
+import arcadia from "../assets/arcadia.svg";
+
+const questions = [
+  {
+    question: "What is the main cause of ocean acidification?",
+    options: [
+      "Increased levels of CO₂ in the atmosphere",
+      "Plastic pollution",
+      "Oil spills",
+      "Overfishing"
+    ],
+    correct: 1,
+    tip: "There's a lot of that in the ocean."
+  },
+  {
+    question: "Which of the following is a major consequence of coral bleaching?",
+    options: [
+      "Loss of marine biodiversity",
+     "Increased fish population",
+     "Lower water temperatures",
+     "Faster coral growth"
+    ],
+    correct: 1,
+    tip: "Nice"
+  },
+  {
+    question: "What percentage of the Earth's oxygen is produced by the ocean?",
+    options: [
+      "Around 50%",
+      "Less than 10%",
+      "About 25%",
+     "Over 90%",
+    ], 
+    correct: 1,
+    tip: "Yes"
+  },
+
+  {
+    question: "Which of the following ocean currents helps regulate global climate?",
+    options: [
+      "The Gulf Stream",
+    "The Mariana Trench Current",
+     "The Bermuda Loop",
+     "The Atlantic Vortex",
+    ],
+    correct: 1,
+    tip: "Nice"
+  },
+  {
+    question: "What is marine heatwave?",
+    options: [
+      "period of abnormally high sea temperatures",
+     "A rise in tsunami frequency",
+    "An increase in salt concentration in seawater",
+     "The rapid melting of icebergs"
+    ],
+    correct: 1,
+    tip: "water waste!"
+  },
+  {
+    question: "What is the Great Pacific Garbage Patch mostly made of?",
+    options: [
+      "Microplastics",
+    "Glass bottles",
+     "Aluminum cans",
+     "Abandoned ships"
+    ],
+    correct: 1,
+    tip: "Thumbs up"
+  },
 
 
-const AquaticAbyssQuiz = ({ label, className, onClick }) => {
-  // const navigate = useNavigate();
-  // const [currentQuestion, setCurrentQuestion] = useState(0);
-  // const [score, setScore] = useState(0);
-  // const [lives, setLives] = useState(3);
+  {
+    question: "Why are rising sea levels a serious concern?",
+    options: [
+      "They cause coastal flooding and erosion", 
+       "They make fish migrate faster",
+      "They improve ship navigation",
+       "They increase the Earth's land area"  
+    ],
+    correct: 1,
+    tip: "Noo"
+  },
+  {
+    question: "What role do mangroves play in protecting coastlines?",
+    options: [
+      "They prevent erosion and act as natural barriers against storms ",
+     "They increase wave height",
+    "They attract more fish",
+     "They make the coastline sink"
+    ],
+    correct: 1,
+    tip: "!"
+  },
+  {
+    question: "Which gas is responsible for the majority of global warming?",
+    options: [
+      "Carbon dioxide (CO₂)",
+       "Nitrogen",
+      "Oxygen",
+       "Helium"
+    ],
+    correct: 1,
+    tip: "Good!"
+  },
 
-  // const questions = [
-  //   {
-  //     question: "What percentage of the Earth's surface is covered by oceans?",
-  //     options: [
-  //       { text: '50%', isCorrect: false },
-  //       { text: '70%', isCorrect: true },
-  //       { text: '85%', isCorrect: false },
-  //       { text: '90%', isCorrect: false },
-  //     ],
-  //   },
-  //   // Add more questions here
-  // ];
+  {
+    question: "Which gas do we breath in?",
+    options: [
+      "Carbon dioxide (CO₂)",
+       "Nitrogen",
+      "Oxygen",
+       "Helium"
+    ],
+    correct: 3,
+    tip: "Good!"
+  },
+];
 
-  // const handleAnswer = (isCorrect) => {
-  //   if (isCorrect) {
-  //     setScore(score + 3);
-  //   } else {
-  //     setScore(score - 10);
-  //     setLives(lives - 1);
-  //   }
+const Quiz = () => {
+  const navigate = useNavigate();
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
-  //   if (lives <= 1 && !isCorrect) {
-  //     navigate('/end', { state: { success: false, score } });
-  //   } else if (currentQuestion === questions.length - 1) {
-  //     navigate('/end', { state: { success: true, score } });
-  //   } else {
-  //     setCurrentQuestion(currentQuestion + 1);
-  //   }
-  // };
+  const handleAnswer = (selectedIndex) => {
+    const correct = selectedIndex === questions[currentQuestion].correct;
+    if (correct) {
+      setScore(score + 3);
+    }
+    setIsCorrect(correct);
+    setShowFeedback(true);
+  };
+
+  const handleNext = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setShowFeedback(false);
+    } else {
+      navigate('/end', { state: { score, total: questions.length } });
+    }
+  };
 
   return (
-    <div
-      onClick={onClick}
-      className={`mt-10 mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl cursor-pointer p-[1.5px] 
-    animate-border-rotate bg-conic/[from_var(--border-angle)] from-sky-300 via-blue-800 to-blue-900 ${
-      className || ""
-    }`}
-    >
-      <div className="w-full h-full rounded-xl px-10 py-60 pr-2 bg-neutral-900">
-        
-        {label}
+    <div className="min-h-screen flex flex-col items-center justify-center text-white relative">
+          <img
+            src={ocean_theme}
+            alt="Ocean"
+            className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10"
+          />
+    <div className="quiz-container">
+      <h2>Question {currentQuestion + 1} of {questions.length}</h2>
+      <p>{questions[currentQuestion].question}</p>
+      
+      <div className="options">
+        {questions[currentQuestion].options.map((option, index) => (
+          <button
+            key={index}
+            onClick={() => handleAnswer(index)}
+            disabled={showFeedback}
+          >
+            {option}
+          </button>
+        ))}
       </div>
+
+      {showFeedback && (
+        <div className={`feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
+          <p>{isCorrect ? 'Correct!' : 'Incorrect!'}</p>
+          <p>Tip: {questions[currentQuestion].tip}</p>
+          <button onClick={handleNext}>
+            {currentQuestion < questions.length - 1 ? 'Next Question' : 'See Results'}
+          </button>
+        </div>
+      )}
+    </div>
+     <img
+             src={arcadia}
+             alt="arcadia"
+             className="w-90 h-90 fixed bottom-10 right-0 transform translate-x-15 translate-y-10"
+           />
     </div>
   );
 };
 
-export default AquaticAbyssQuiz;
-
-{/* <div 
-      className="min-h-screen bg-cover bg-center flex items-center justify-center p-4"
-      style={{ backgroundImage: "url('/assets/ocean_theme.svg')" }}
-    >
-      <div className="bg-black bg-opacity-80 p-8 rounded-lg max-w-2xl w-full">
-        <div className="flex justify-between mb-6">
-          <div className="text-white">Score: {score}</div>
-          <div className="text-red-500">Lives: {'❤️'.repeat(lives)}</div>
-        </div>
-        
-        {questions[currentQuestion] && (
-          <div className="space-y-6">
-            <h3 className="text-xl text-white mb-4">{questions[currentQuestion].question}</h3>
-            <div className="grid grid-cols-1 gap-4">
-              {questions[currentQuestion].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleAnswer(option.isCorrect)}
-                  className="bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-lg transition-colors duration-300"
-                >
-                  {option.text}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div> */}
+export default Quiz;
