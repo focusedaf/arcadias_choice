@@ -9,14 +9,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
+  overflow-x: hidden;
 }
 
 .nes-container {
   margin-bottom: 20px;
+  padding: 1rem;
 }
 
 .nes-btn {
   margin: 5px 0;
+  padding: 0.75rem 1rem;
+  min-height: 44px; /* Minimum touch target size */
+  touch-action: manipulation;
 }
 
 .choices button:hover {
@@ -28,26 +33,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
   color: white;
+  padding: 1rem;
 }
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
-
-/* .bg-\[linear-gradient\(to_right,
-_var\(--tw-gradient-stops\)\)\] {
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem 0.5rem;
+  }
+  
+  .nes-container {
+    padding: 0.75rem;
+  }
+  
+  .nes-btn {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
 }
-
-.bg-\[conic-gradient\(from var\(--border-angle\),_var\(--tw-gradient-stops\)\)\] {
-  background-image: conic-gradient(from var(--border-angle), var(--tw-gradient-stops));
-} */
 
 @property --border-angle {
   syntax: "<angle>";
