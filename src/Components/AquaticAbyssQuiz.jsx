@@ -153,44 +153,47 @@ const Quiz = () => {
         className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10"
       />
 
-      <div className="quiz-container">
-        <div
-          className="mt-10 mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl cursor-pointer p-[1.5px] animate-border-rotate bg-conic/[from_var(--border-angle)] from-blue-300 via-blue-600 to-blue-800"
-        >
+      <div className="quiz-container relative">
+        <div className="mt-10 mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl cursor-pointer p-[1.5px] animate-border-rotate bg-conic/[from_var(--border-angle)] from-blue-300 via-blue-600 to-blue-800">
           <div
             className="w-full h-full rounded-xl px-10 py-60 pr-2
           bg-neutral-900"
           >
-            <h2>
-              Question {currentQuestion + 1} of {questions.length}
-            </h2>
-            <p>{questions[currentQuestion].question}</p>
+            <div className='absolute top-10 left-50 right-50'>
+              <h2 className="bg-sky-200 ">
+                Question {currentQuestion + 1} of {questions.length}
+              </h2>
+              <p className="bg-sky-300 ">
+                {questions[currentQuestion].question}
+              </p>
 
-            <div className="options">
-              {questions[currentQuestion].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleAnswer(index)}
-                  disabled={showFeedback}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-
-            {showFeedback && (
-              <div
-                className={`feedback ${isCorrect ? "correct" : "incorrect"}`}
-              >
-                <p>{isCorrect ? "Correct!" : "Incorrect!"}</p>
-                <p>Tip: {questions[currentQuestion].tip}</p>
-                <button onClick={handleNext}>
-                  {currentQuestion < questions.length - 1
-                    ? "Next Question"
-                    : "See Results"}
-                </button>
+              <div className="flex flex-col items-center gap-3 mt-2">
+                {questions[currentQuestion].options.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleAnswer(index)}
+                    disabled={showFeedback}
+                    className="inline-block px-4 py-2 duration-200 hover:bg-white hover:text-black rounded-full w-full  cursor-pointer bg-red-400"
+                  >
+                    {option}
+                  </button>
+                ))}
               </div>
-            )}
+
+              {showFeedback && (
+                <div
+                  className={`feedback ${isCorrect ? "correct" : "incorrect"}`}
+                >
+                  <p>{isCorrect ? "Correct!" : "Incorrect!"}</p>
+                  <p>Tip: {questions[currentQuestion].tip}</p>
+                  <button onClick={handleNext}>
+                    {currentQuestion < questions.length - 1
+                      ? "Next Question"
+                      : "See Results"}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

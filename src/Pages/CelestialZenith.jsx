@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import usePreventZoom from "../Components/PreventZoom";
 import sky_theme from '../assets/sky_theme.svg'
 import arcadia from "../assets/arcadia.svg";
+import { CelestialZenithQuiz } from "../Components/index";
 
 const CelestialZenith = () => {
   usePreventZoom();
+  const [visible,setVisible] = useState(false);
   const navigate = useNavigate();
 
   return (
-    <div
-      className="min-h-screen py-12 px-4"
-      
-    >
+    <div className="min-h-screen py-12 px-4">
       <img
         src={sky_theme}
         alt="sky theme"
@@ -38,13 +37,22 @@ const CelestialZenith = () => {
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate("/quiz/celestial")}
+            onClick={() => setVisible(true)}
             className="bg-purple-500 hover:bg-purple-600 text-white font-press-start 
                      py-4 px-8 rounded-lg transition-all duration-300 
                      hover:scale-105 hover:shadow-xl"
           >
             Begin Challenge
           </button>
+        </div>
+
+        {/* to display the themed quiz boxes */}
+        <div
+          className={`fixed top-0 right-0 h-screen w-full transition-transform transform ${
+            visible ? "translate-x-0" : "translate-x-full"
+          } z-50`}
+        >
+          <CelestialZenithQuiz />
         </div>
 
         <div className="flex justify-center mt-4">
@@ -58,10 +66,10 @@ const CelestialZenith = () => {
         </div>
       </div>
       <img
-              src={arcadia}
-              alt="arcadia"
-              className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
-              />
+        src={arcadia}
+        alt="arcadia"
+        className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
+      />
     </div>
   );
 };
