@@ -4,6 +4,7 @@ import usePreventZoom from "../Components/PreventZoom";
 import ocean_theme from '../assets/ocean_theme.svg';
 import arcadia from "../assets/arcadia.svg";
 import { AquaticAbyssQuiz } from '../Components/index';
+
 const AquaticAbyss = () => {
   usePreventZoom();
   const [visible,setVisible] = useState(false);
@@ -56,6 +57,7 @@ const AquaticAbyss = () => {
         >
           <AquaticAbyssQuiz />
         </div>
+        
         {/* Back Button */}
         <div className="flex justify-center mt-4">
           <button

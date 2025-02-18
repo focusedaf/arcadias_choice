@@ -43,8 +43,7 @@ const CelestialZenithQuiz = ({ label, className, onClick }) => {
       className={`
         mt-10 mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl 
         cursor-pointer p-[1.5px] animate-border-rotate
-        border
-       bg-conic/[from_var(--border-angle)]
+        bg-conic/[from_var(--border-angle)]
         from-purple-300 via-purple-600 to-purple-800 
         ${className || ""}
       `}
@@ -52,7 +51,7 @@ const CelestialZenithQuiz = ({ label, className, onClick }) => {
       <div
         className="
           w-full h-full rounded-xl px-10 py-60 pr-2
-          bg-neutral-900
+          bg-neutral-900 
         "
       >
         {label}
