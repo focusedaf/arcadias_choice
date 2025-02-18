@@ -13,6 +13,7 @@ const AquaticAbyssQuiz = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
+  const [hearts, setHearts] = useState(parseInt(localStorage.getItem('hearts') || '3'));
   
   const { questions, loading, error } = useQuiz('Aquatic Abyss : Impact of Climate Change on Ocean and Aquatic Life');
 
@@ -77,6 +78,15 @@ const AquaticAbyssQuiz = () => {
       setScore(score + 3);
       console.log(questions[currentQuestion].impact_on_game.success);
     } else {
+      const newHearts = hearts - 1;
+      setHearts(newHearts);
+      localStorage.setItem('hearts', newHearts.toString());
+      
+      if (newHearts <= 0) {
+        localStorage.setItem('score', '0');
+        navigate('/end');
+        return;
+      }
       console.log(questions[currentQuestion].impact_on_game.failure);
     }
     setIsCorrect(correct);
@@ -99,7 +109,6 @@ const AquaticAbyssQuiz = () => {
     <div style={{minHeight: '100vh', position: 'relative', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
       <img src={ocean_theme} alt="Ocean" className="fixed top-0 left-0 w-full h-screen object-cover object-center -z-10" />
       
-      {/* Bubbles animation */}
       <div className="bubbles" style={{position: 'fixed', width: '100%', height: '100%', overflow: 'hidden', zIndex: -5}}>
         {[...Array(15)].map((_, i) => (
           <div key={i} className="bubble" style={{
@@ -235,7 +244,6 @@ const AquaticAbyssQuiz = () => {
         />
       </div>
       
-      
       <style>{`
         
         @keyframes float {
@@ -268,4 +276,4 @@ const AquaticAbyssQuiz = () => {
   );
 };
 
-export default AquaticAbyssQuiz;
+export default AquaticAbyssQuiz;

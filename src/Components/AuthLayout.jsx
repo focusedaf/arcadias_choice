@@ -32,9 +32,9 @@ const AuthLayout = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-black bg-opacity-70 p-8 rounded-lg w-full max-w-md">
-        <h2 className="text-2xl text-white font-press-start mb-6 text-center">
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="bg-black bg-opacity-70 p-6 md:p-8 rounded-lg w-full max-w-md">
+        <h2 className="text-xl md:text-2xl text-white font-press-start mb-6 text-center">
           Enter Your Name
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -42,13 +42,13 @@ const AuthLayout = () => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 focus:border-green-500 focus:outline-none placeholder:text-center"
+            className="w-full p-4 rounded bg-gray-800 text-white border border-gray-700 focus:border-green-500 focus:outline-none placeholder:text-center text-base md:text-lg"
             placeholder="Your username"
             required
           />
           <button
             type="submit"
-            className="w-full bg-green-500 hover:bg-green-600 text-white font-press-start py-3 rounded transition-colors duration-300"
+            className="w-full bg-green-500 hover:bg-green-600 text-white font-press-start py-4 rounded transition-colors duration-300 text-sm md:text-base"
           >
             Begin Adventure
           </button>
