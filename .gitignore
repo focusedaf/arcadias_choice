@@ -23,5 +23,7 @@ script.md
 *.njsproj
 *.sln
 *.sw?
+.env.local
 
 # Updated gitignore
+env.download

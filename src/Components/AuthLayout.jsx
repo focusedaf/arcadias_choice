@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import db from "../firebase/firebaseConfig";
+import { collection, addDoc } from 'firebase/firestore';
 
 const AuthLayout = () => {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (username.trim()) {
-      localStorage.setItem('username', username);
-      navigate('/home');
+      try {
+        
+        localStorage.setItem('username', username);
+
+        
+        const docRef = await addDoc(collection(db, "users"), {
+          username: username,
+          score: 0, 
+        });
+
+        
+        localStorage.setItem('userId', docRef.id);
+
+       
+        navigate('/home');
+      } catch (error) {
+        console.error("Error adding user: ", error);
+      }
     }
   };
 

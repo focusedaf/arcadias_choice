@@ -11,6 +11,19 @@ body {
   color: white;
 }
 
+.nes-container {
+  margin-bottom: 20px;
+}
+
+.nes-btn {
+  margin: 5px 0;
+}
+
+.choices button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+
 .main-content {
   display: flex;
   justify-content: center;

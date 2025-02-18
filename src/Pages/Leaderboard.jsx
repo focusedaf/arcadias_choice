@@ -1,47 +1,54 @@
-import React, {useState, useRef} from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import {LeaderboardItem} from '../Components/index';
+// src/Pages/Leaderboard.jsx
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LeaderboardItem } from '../Components/index';
 import usePreventZoom from "../Components/PreventZoom";
-import leaderboard from '../assets/leaderboard.svg'
+import leaderboard from '../assets/leaderboard.svg';
 import arcadia from "../assets/arcadia.svg";
 import audio from "../assets/After We Win - Nathan Moore.mp3";
-
-// Mock data stays the same
-const leaderboardData = [
-  { id: 1, playerName: "DragonSlayer", score: 125000 },
-  { id: 2, playerName: "StarQuester", score: 98500 },
-  { id: 3, playerName: "MythicHero", score: 87200 },
-  { id: 4, playerName: "LegendHunter", score: 76400 },
-  { id: 5, playerName: "ArcadeMaster", score: 65300 },
-  { id: 6, playerName: "QuestSeeker", score: 54200 },
-  { id: 7, playerName: "PixelWarrior", score: 43100 },
-];
+import db from '../firebase/firebaseConfig';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 
 const Leaderboard = () => {
-  usePreventZoom(); 
+  usePreventZoom();
   const navigate = useNavigate();
   const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(new Audio(audio));
-  
-    const handlePlayPause = () => {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
+  const audioRef = useRef(new Audio(audio));
+  const [leaderboardData, setLeaderboardData] = useState([]);
+
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    const fetchLeaderboardData = async () => {
+      const q = query(collection(db, "users"), orderBy("score", "desc"));
+      const querySnapshot = await getDocs(q);
+      const data = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        playerName: doc.data().username,
+        score: doc.data().score,
+      }));
+      setLeaderboardData(data);
     };
+
+    fetchLeaderboardData();
+  }, []);
 
   return (
     <div>
       <img
         src={leaderboard}
         alt="leaderboard"
-        className="fixed top-0 left-0  h-screen w-full object-cover object-center  -z-10"
+        className="fixed top-0 left-0 h-screen w-full object-cover object-center -z-10"
       />
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-center mb-8">Leaderboard</h1>
-
         <div className="max-w-3xl mx-auto space-y-2">
           {leaderboardData.map((player, index) => (
             <LeaderboardItem
@@ -54,8 +61,6 @@ const Leaderboard = () => {
           ))}
         </div>
       </div>
-
-      <div className="flex justify-center mt-8"></div>
       <button
         onClick={() => navigate("/home")}
         className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
@@ -63,11 +68,11 @@ const Leaderboard = () => {
         Home
       </button>
       <img
-              src={arcadia}
-              alt="arcadia"
-              className="w-80 h-90 fixed bottom-3 right-0 transform translate-x-15 translate-y-10"
-            />
-            <button
+        src={arcadia}
+        alt="arcadia"
+        className="w-80 h-90 fixed bottom-3 right-0 transform translate-x-15 translate-y-10"
+      />
+      <button
         onClick={handlePlayPause}
         className="fixed bottom-16 left-4 bg-blue-500 hover:bg-blue-600 text-white font-press-start py-4 px-8 rounded-full transition-colors duration-300"
       >
