@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ocean_theme from "../assets/ocean_theme.svg";
 import arcadia from "../assets/arcadia.svg";
+import audio from "../assets/After We Win - Nathan Moore.mp3";
 
 const questions = [
   {
