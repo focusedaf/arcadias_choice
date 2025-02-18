@@ -28,7 +28,6 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/leaderboard" element={<Leaderboard />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/quiz" element={<Quiz />}></Route>
         <Route path="/themeselection" element={<ThemeSelection />}></Route>
         <Route path="/aquatic" element={<AquaticAbyss />} />
         <Route path="/emerald" element={<EmeraldWilds />} />
