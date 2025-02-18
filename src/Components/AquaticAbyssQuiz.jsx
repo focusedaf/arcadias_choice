@@ -146,7 +146,7 @@ const Quiz = () => {
   };
 
   return (
-    <div className="text-white ">
+    <div className="text-black ">
       <img
         src={ocean_theme}
         alt="Ocean"
@@ -159,21 +159,21 @@ const Quiz = () => {
             className="w-full h-full rounded-xl px-10 py-60 pr-2
           bg-neutral-900"
           >
-            <div className='absolute top-10 left-50 right-50'>
-              <h2 className="bg-sky-200 ">
+            <div className=" text-sm">
+              <h2 className="bg-[#e8d3b8] ">
                 Question {currentQuestion + 1} of {questions.length}
               </h2>
-              <p className="bg-sky-300 ">
+              <p className="bg-[#e8d3b8] ">
                 {questions[currentQuestion].question}
               </p>
 
-              <div className="flex flex-col items-center gap-3 mt-2">
+              <div className="flex flex-col items-center gap-3 mt-2 ">
                 {questions[currentQuestion].options.map((option, index) => (
                   <button
                     key={index}
                     onClick={() => handleAnswer(index)}
                     disabled={showFeedback}
-                    className="inline-block px-4 py-2 duration-200 hover:bg-white hover:text-black rounded-full w-full  cursor-pointer bg-red-400"
+                    className="inline-block px-4 py-2 duration-200 hover:bg-white hover:text-black rounded-full w-full  cursor-pointer bg-[#e8d3b8] "
                   >
                     {option}
                   </button>
