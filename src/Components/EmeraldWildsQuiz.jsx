@@ -16,7 +16,7 @@ const EmeraldWildsQuiz = () => {
   
   const { questions, loading, error } = useQuiz('Emerald Wilds : Fading Forests n Forest Fires, Climate Change and the Decline of Greenery');
 
-  // Text typing effect for scenario
+  // Text typing effect
   useEffect(() => {
     if (!loading && questions && questions.length > 0 && !showFeedback) {
       setIsTyping(true);
@@ -239,7 +239,6 @@ const EmeraldWildsQuiz = () => {
       </div>
       
       
-      {/* Add animation keyframes */}
       <style>{`
         
         @keyframes blink {

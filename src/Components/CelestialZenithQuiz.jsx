@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useQuiz } from '../hooks/useQuiz';
 import sky_theme from "../assets/sky_theme.svg"; 
 import arcadia from "../assets/arcadia.svg";
-// Import NES.css
 import "nes.css/css/nes.min.css";
 
 const CelestialZenithQuiz = () => {
@@ -15,10 +14,8 @@ const CelestialZenithQuiz = () => {
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
   
-  // Use the quiz hook to fetch questions with the sky-themed title
   const { questions, loading, error } = useQuiz('Celestial Zenith : The Changing Atmosphere and its impact on Our world and Climate Change.');
 
-  // Text typing effect for scenario
   useEffect(() => {
     if (!loading && questions && questions.length > 0 && !showFeedback) {
       setIsTyping(true);
@@ -38,7 +35,6 @@ const CelestialZenithQuiz = () => {
     }
   }, [currentQuestion, loading, questions, showFeedback]);
 
-  // Handle loading state
   if (loading) {
     return (
       <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -51,7 +47,6 @@ const CelestialZenithQuiz = () => {
     );
   }
 
-  // Handle error state
   if (error) {
     return (
       <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -64,7 +59,6 @@ const CelestialZenithQuiz = () => {
     );
   }
 
-  // Handle empty questions
   if (!questions || questions.length === 0) {
     return (
       <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -81,10 +75,8 @@ const CelestialZenithQuiz = () => {
     const correct = selectedChoice === questions[currentQuestion].correct_answer;
     if (correct) {
       setScore(score + 3);
-      // Apply success impact
       console.log(questions[currentQuestion].impact_on_game.success);
     } else {
-      // Apply failure impact
       console.log(questions[currentQuestion].impact_on_game.failure);
     }
     setIsCorrect(correct);
@@ -226,7 +218,6 @@ const CelestialZenithQuiz = () => {
         />
       </div>
       
-      {/* Add animation keyframes */}
       <style>{`
         
         @keyframes float {

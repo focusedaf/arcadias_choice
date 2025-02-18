@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useQuiz } from '../hooks/useQuiz';
 import ocean_theme from "../assets/ocean_theme.svg";
 import arcadia from "../assets/arcadia.svg";
-// Import NES.css
 import "nes.css/css/nes.min.css";
 
 const AquaticAbyssQuiz = () => {
@@ -15,10 +14,8 @@ const AquaticAbyssQuiz = () => {
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
   
-  // Use the quiz hook to fetch questions
   const { questions, loading, error } = useQuiz('Aquatic Abyss : Impact of Climate Change on Ocean and Aquatic Life');
 
-  // Text typing effect for scenario
   useEffect(() => {
     if (!loading && questions && questions.length > 0 && !showFeedback) {
       setIsTyping(true);
@@ -38,7 +35,6 @@ const AquaticAbyssQuiz = () => {
     }
   }, [currentQuestion, loading, questions, showFeedback]);
 
-  // Handle loading state
   if (loading) {
     return (
       <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -51,7 +47,6 @@ const AquaticAbyssQuiz = () => {
     );
   }
 
-  // Handle error state
   if (error) {
     return (
       <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -64,7 +59,6 @@ const AquaticAbyssQuiz = () => {
     );
   }
 
-  // Handle empty questions
   if (!questions || questions.length === 0) {
     return (
       <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -81,10 +75,8 @@ const AquaticAbyssQuiz = () => {
     const correct = selectedChoice === questions[currentQuestion].correct_answer;
     if (correct) {
       setScore(score + 3);
-      // Apply success impact
       console.log(questions[currentQuestion].impact_on_game.success);
     } else {
-      // Apply failure impact
       console.log(questions[currentQuestion].impact_on_game.failure);
     }
     setIsCorrect(correct);
@@ -244,7 +236,6 @@ const AquaticAbyssQuiz = () => {
       </div>
       
       
-      {/* Add animation keyframes */}
       <style>{`
         
         @keyframes float {
