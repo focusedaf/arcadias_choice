@@ -58,7 +58,7 @@ const EmeraldWilds = () => {
         <div className="flex justify-center mt-4">
           <button
             onClick={() => navigate("/home")}
-            className="text-white/80 hover:text-white font-press-start 
+            className="text-white bg-green-600 hover:bg-green-700 font-press-start 
                      py-2 px-4 rounded-lg transition-colors duration-300"
           >
             Return to Realms
@@ -68,7 +68,7 @@ const EmeraldWilds = () => {
       <img
         src={arcadia}
         alt="arcadia"
-        className="w-80 h-90 fixed bottom-1 right-2 transform translate-x-15 translate-y-10"
+        className="w-48 md:w-80 h-auto fixed bottom-0 right-0 transform translate-x-15 translate-y-0 opacity-75 md:opacity-100"
       />
     </div>
   );

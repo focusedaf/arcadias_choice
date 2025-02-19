@@ -32,7 +32,7 @@ const Login = () => {
       <img
               src={arcadia}
               alt="arcadia"
-              className="w-90 h-90 fixed bottom-8 right-2 transform translate-x-15 translate-y-10"
+              className="w-48 md:w-80 h-auto fixed bottom-0 right-0 transform translate-x-15 translate-y-0 opacity-75 md:opacity-100"
             />
         <button
         onClick={handlePlayPause}

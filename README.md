@@ -21,7 +21,7 @@ Arcadia's Choice combines the thrill of interactive storytelling with an educati
   - **Metropolis Matrix (Urban)**  
 
 - **Interactive Quizzes:**  
-  Each theme presents **10 thought-provoking questions** related to real-world environmental issues. Questions are powered by **CodeBuff**, ensuring fresh and dynamic challenges every time.  
+  Each theme presents **10 thought-provoking questions** related to real-world environmental issues. Questions are powered by **Gemini**, ensuring fresh and dynamic challenges every time.  
 
 - **Thematic UI & Quiz Components:**  
   Every theme features beautifully designed quiz boxes and UI elements that enhance immersion.  
@@ -44,9 +44,10 @@ Arcadia's Choice combines the thrill of interactive storytelling with an educati
 
 ##  Tech Stack  
 
-- **Frontend:** React, Tailwind CSS, JavaScript, Superflex AI  
-- **Backend:** Firebase/Supabase (for authentication & leaderboard)  
-
+- **Frontend:** React, Tailwind CSS, JavaScript, ness.css,Superflex AI  
+- **Backend:** Firebase (for authentication & leaderboard)  
+- **Questions:** Gemini API
+- **Deployment:** Vercel
 
 ## How to Run the Project
 1. Clone the repository:

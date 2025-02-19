@@ -1,4 +1,3 @@
-// src/Pages/Leaderboard.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LeaderboardItem } from '../Components/index';
@@ -41,40 +40,52 @@ const Leaderboard = () => {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen bg-peach flex flex-col items-center">
       <img
         src={leaderboard}
         alt="leaderboard"
         className="fixed top-0 left-0 h-screen w-full object-cover object-center -z-10"
       />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-8">Leaderboard</h1>
-        <div className="max-w-3xl mx-auto space-y-2">
-          {leaderboardData.map((player, index) => (
-            <LeaderboardItem
-              key={player.id}
-              rank={index + 1}
-              playerName={player.playerName}
-              score={player.score}
-              isTopThree={index < 3}
-            />
-          ))}
-        </div>
+      <h1 className="text-4xl font-bold text-center mt-8 mb-4 text-yellow-300 font-nes">
+        Leaderboard
+      </h1>
+      <div className="max-w-3xl w-full bg-amber-950 rounded-lg shadow-lg p-4 space-y-2 border-4 border-brown-800 pixel-border">
+        {leaderboardData.map((player, index) => (
+          <div 
+            key={player.id} 
+            className="flex justify-between items-center p-3 rounded border-2 border-brown-800 bg-orange-200"
+          >
+            <span 
+              className={`text-lg font-bold ${
+                index === 0 ? "text-yellow-500" : 
+                index === 1 ? "text-gray-400" : 
+                index === 2 ? "text-orange-600" : "text-black"
+              }`}
+            >
+              {index + 1}.
+            </span>
+            <span className="text-black text-lg">{player.playerName}</span>
+            <span className="text-black text-lg">{player.score}</span>
+          </div>
+        ))}
       </div>
+  
       <button
         onClick={() => navigate("/home")}
-        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full"
+        className="nes-btn is-success mt-8 w-50 h-20 fixed -bottom-17 -right-40 transform -translate-x-1/2"
       >
         Home
       </button>
+  
       <img
         src={arcadia}
         alt="arcadia"
-        className="w-80 h-90 fixed bottom-3 right-0 transform translate-x-15 translate-y-10"
+        className="w-48 md:w-80 h-auto fixed bottom-0 right-0 transform translate-x-15 translate-y-0 opacity-75 md:opacity-100"
       />
+  
       <button
         onClick={handlePlayPause}
-        className="fixed bottom-16 left-4 bg-blue-500 hover:bg-blue-600 text-white font-press-start py-4 px-8 rounded-full transition-colors duration-300"
+        className="fixed bottom-8 left-4 bg-blue-500 hover:bg-blue-600 text-white font-press-start py-3 px-6 rounded-full transition-colors duration-300 text-sm md:text-base"
       >
         {isPlaying ? "Pause" : "Play"}
       </button>
